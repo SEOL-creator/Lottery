@@ -115,8 +115,8 @@ export default function ResultBox({ className, isOpen, result, goBack }) {
             <h2 style={{ fontSize: "14px" }}>{result.condition}</h2>
             <h1 style={{ fontSize: "24px" }}>{result.name}</h1>
             <div style={{ height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                {result.result.map((text) => {
-                    return <ResultSpan>{text}</ResultSpan>;
+                {result.result.map((text, idx) => {
+                    return <ResultSpan key={idx}>{text}</ResultSpan>;
                 })}
             </div>
             <ButtonContainer>
