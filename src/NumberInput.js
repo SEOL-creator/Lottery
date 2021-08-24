@@ -1,6 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
+import { ReactComponent as ChevronUp } from "./assets/chevron-up.svg";
+import { ReactComponent as ChevronDown } from "./assets/chevron-down.svg";
+
 export default function NumberInput({ name, value, handleOnChange, setValue }) {
     const inputStyle = css`
         display: flex;
@@ -12,34 +15,36 @@ export default function NumberInput({ name, value, handleOnChange, setValue }) {
             align-items: center;
             justify-content: center;
             box-sizing: border-box;
-            padding: 0 5px;
-            height: 44px;
+            padding: 0 4px;
+            height: 30px;
             cursor: pointer;
-            border: 2px solid rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.3);
             background: none;
+            border-radius: 12px;
         }
 
         & button.up {
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
             border-left: none;
         }
         & button.down {
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
             border-right: none;
         }
 
         & svg {
-            width: 18px;
+            width: 12px;
+            margin: 0 4px;
         }
 
         & input[type="number"] {
-            width: 60px;
-            height: 44px;
+            width: 50px;
+            height: 30px;
             box-sizing: border-box;
-            font-size: 20px;
-            border: 2px solid rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
@@ -61,14 +66,7 @@ export default function NumberInput({ name, value, handleOnChange, setValue }) {
                     setValue(name, value[name] - 1);
                 }}
             >
-                <svg viewBox="0 -256 1792 1792" version="1.1">
-                    <g>
-                        <path
-                            d="m 1611,320 q 0,-53 -37,-90 l -75,-75 q -38,-38 -91,-38 -54,0 -90,38 L 832,640 346,155 q -36,-38 -90,-38 -54,0 -90,38 l -75,75 q -38,36 -38,90 0,53 38,91 l 651,651 q 37,37 90,37 52,0 91,-37 l 650,-651 q 38,-38 38,-91 z"
-                            style={{ fill: "currentColor" }}
-                        />
-                    </g>
-                </svg>
+                <ChevronDown />
             </button>
             <input id={name} type="number" name={name} value={value[name]} onChange={handleOnChange} />
             <button
@@ -77,14 +75,7 @@ export default function NumberInput({ name, value, handleOnChange, setValue }) {
                     setValue(name, value[name] + 1);
                 }}
             >
-                <svg viewBox="0 -256 1792 1792" version="1.1">
-                    <g transform="matrix(1,0,0,-1,68.338983,1217.0847)">
-                        <path
-                            d="m 1611,320 q 0,-53 -37,-90 l -75,-75 q -38,-38 -91,-38 -54,0 -90,38 L 832,640 346,155 q -36,-38 -90,-38 -54,0 -90,38 l -75,75 q -38,36 -38,90 0,53 38,91 l 651,651 q 37,37 90,37 52,0 91,-37 l 650,-651 q 38,-38 38,-91 z"
-                            style={{ fill: "currentColor" }}
-                        />
-                    </g>
-                </svg>
+                <ChevronUp />
             </button>
         </div>
     );
